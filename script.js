@@ -1,25 +1,30 @@
 $(document).ready(function(){
-  var userNumber = prompt("Please enter a number");
-  userNumber = +userNumber;
 
-  ValidateInput(userNumber);
-
-  function ValidateInput (x) {
-    if (!(parseInt(x))) {
-      return $('body').append('<div>Please enter a number!</div>'); 
+  function numberPrompt () {
+    var x = prompt("You entered a string.  Please enter a number!!!!");
+    if (x === null) { //otherwise theres no way to get out of the prompt except putting in a valid number
+      return;
     }
+    x = +x; //convert string from prompt to a number
 
+    if (!parseInt(x)) {
+      return numberPrompt();
+    }
+    else {
+      return Fizzy(x);
+    }
   }
+
 
   function Fizzy(n) {
     for (i =1; i <= n; i++) {
-      if ( ((i % 3) == 0) && ((i % 5) == 0) ) {
+      if ( ((i % 3) === 0) && ((i % 5) === 0) ) {
         $('body').append('<div>fizz buzz</div>');
       }
-      else if ((i % 3) == 0) {
+      else if ((i % 3) === 0) {
         $('body').append('<div>fizz</div>');
       }
-      else if ((i % 5) == 0) {
+      else if ((i % 5) === 0) {
         $('body').append('<div>buzz</div>');
       }
       else {
@@ -27,8 +32,8 @@ $(document).ready(function(){
       }
     }
 
-  };
+  }
 
-  Fizzy(userNumber);
+numberPrompt();
 
 });
