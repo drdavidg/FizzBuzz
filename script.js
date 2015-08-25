@@ -11,6 +11,7 @@ $(document).ready(function(){
     if (!parseInt(x)) {
       return numberPrompt("You entered a string!!! Enter a number.");
     }
+    else if (x % 1 !== 0) return numberPrompt("Please enter a number with NO DECIMAL PLACES!");
     else {
       return Fizzy(x);
     }
