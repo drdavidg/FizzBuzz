@@ -1,14 +1,15 @@
 $(document).ready(function(){
 
-  function numberPrompt () {
-    var x = prompt("You entered a string.  Please enter a number!!!!");
+
+  function numberPrompt (msg) {
+    var x = prompt(msg);
     if (x === null) { //otherwise theres no way to get out of the prompt except putting in a valid number
       return;
     }
     x = +x; //convert string from prompt to a number
 
     if (!parseInt(x)) {
-      return numberPrompt();
+      return numberPrompt("You entered a string!!! Enter a number.");
     }
     else {
       return Fizzy(x);
@@ -34,6 +35,6 @@ $(document).ready(function(){
 
   }
 
-numberPrompt();
+numberPrompt("Please enter a number");
 
 });
